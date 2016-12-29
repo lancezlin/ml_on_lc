@@ -20,6 +20,11 @@ lib64/
 parts/
 sdist/
 var/
+bin/
+include/
+share/
+.yml
+.json
 *.egg-info/
 .installed.cfg
 *.egg
@@ -87,3 +92,6 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+local/
+.pyc

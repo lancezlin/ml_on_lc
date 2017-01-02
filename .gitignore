@@ -95,4 +95,6 @@ ENV/
 
 local/
 .pyc
-datasets/*
+datasets/train/
+datasets/test1/
+

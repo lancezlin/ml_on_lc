@@ -17,8 +17,13 @@ from keras.preprocessing.image import ImageDataGenerator
 cnn_classifier = Sequential()
 cnn_classifier.add(Convolution2D(32, 3, 3, border_mode = 'same', input_shape = (64, 64, 3), activation = 'relu'))
 cnn_classifier.add(MaxPooling2D(pool_size = (2, 2)))
+
+cnn_classifier.add(Convolution2D(32, 3, 3, activation = 'relu'))
+cnn_classifier.add(MaxPooling2D(pool_size = (2, 2)))
+
 cnn_classifier.add(Flatten())
 cnn_classifier.add(Dense(output_dim = 128, activation = 'relu'))
+cnn_classifier.add(Dense(output_dim = 64, activation = 'relu'))
 cnn_classifier.add(Dense(output_dim = 1, activation = 'sigmoid'))
 
 # CNN compile
@@ -47,3 +52,4 @@ cnn_classifier.fit_generator(training_set,
                          nb_epoch = 25,
                          validation_data = test_set,
                          nb_val_samples = 2000)
+                         

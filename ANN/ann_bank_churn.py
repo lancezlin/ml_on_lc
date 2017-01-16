@@ -7,13 +7,16 @@ Created on Sun Jan  1 23:39:02 2017
 
 # Importing the libraries
 import numpy as np
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 import pandas as pd
 import keras
 from sklearn.preprocessing import StandardScaler
 from keras.models import Sequential
 from keras.layers import Dense, Activation
 from sklearn.metrics import confusion_matrix
+from sklearn.metrics import precision_recall_curve
+from sklearn.metrics import average_precision_score
+from sklearn.metrics import classification_report
 
 # Importing the dataset
 dataset = pd.read_csv('datasets/ann_train/Churn_Modelling.csv')
@@ -57,3 +60,5 @@ y_pred = (y_pred > 0.5)
 print("[INFO] loss = {:.4f}, accuracy = {:.4f}%".format(loss, accuracy * 100))
 
 ann_cm = confusion_matrix(y_test, y_pred)
+class_report = classification_report(y_test, y_pred)
+print(class_report)

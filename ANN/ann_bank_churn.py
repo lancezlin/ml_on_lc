@@ -17,6 +17,8 @@ from sklearn.metrics import confusion_matrix
 from sklearn.metrics import precision_recall_curve
 from sklearn.metrics import average_precision_score
 from sklearn.metrics import classification_report
+from sklearn.metrics import f1_score
+import sklearn.metrics as mtx
 
 # Importing the dataset
 dataset = pd.read_csv('datasets/ann_train/Churn_Modelling.csv')
@@ -62,3 +64,7 @@ print("[INFO] loss = {:.4f}, accuracy = {:.4f}%".format(loss, accuracy * 100))
 ann_cm = confusion_matrix(y_test, y_pred)
 class_report = classification_report(y_test, y_pred)
 print(class_report)
+print(f1_score(y_test, y_pred))
+
+recall_score, precision_score = mtx.recall_score(y_test, y_pred), mtx.precision_score(y_test, y_pred)
+
